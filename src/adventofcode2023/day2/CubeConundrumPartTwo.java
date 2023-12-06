@@ -16,7 +16,7 @@ public class CubeConundrumPartTwo {
                 for (String colors : info) {
                     int red = 0, green = 0, blue = 0;
                     for (String c : colors.split(", ")) {
-                        int sub = Integer.parseInt(c.trim().split(" ")[0]);
+                        int sub = Integer.parseInt(c.trim().split("\\s+")[0]);
                         if (c.contains("red")) red += sub;
                         if (c.contains("green")) green += sub;
                         if (c.contains("blue")) blue += sub;

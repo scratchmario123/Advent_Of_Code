@@ -14,8 +14,7 @@ public class GearRatiosPartOne {
                 for (int j = 0; j < L; j++) {
                     if (Character.isDigit(sl.get(i).charAt(j))) {
                         int start = Math.max(0,j-1), temp = sl.get(i).charAt(j)-'0';
-                        while (j+1<L) {
-                            j++;
+                        while (++j<L) {
                             if (Character.isDigit(sl.get(i).charAt(j))) temp = temp*10+sl.get(i).charAt(j)-'0';
                             else break;
                         }

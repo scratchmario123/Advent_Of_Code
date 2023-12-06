@@ -11,13 +11,13 @@ public class CubeConundrumPartOne {
             int sum = 0;
             while (scanner.hasNext()) {
                 String s = scanner.nextLine();
-                int gid = Integer.parseInt(s.split(":")[0].split(" ")[1]);
+                int gid = Integer.parseInt(s.split(":")[0].split("\\s+")[1]);
                 String[] info = s.split(":")[1].split("; ");
                 boolean rule = false;
                 for (String colors : info) {
                     int red = 0, green = 0, blue = 0;
                     for (String c : colors.split(", ")) {
-                        int sub = Integer.parseInt(c.trim().split(" ")[0]);
+                        int sub = Integer.parseInt(c.trim().split("\\s+")[0]);
                         if (c.contains("red")) red += sub;
                         if (c.contains("green")) green += sub;
                         if (c.contains("blue")) blue += sub;

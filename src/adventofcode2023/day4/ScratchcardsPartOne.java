@@ -13,8 +13,8 @@ public class ScratchcardsPartOne {
             int sum = 0;
             while (scanner.hasNext()) {
                 String s = scanner.nextLine();
-                List<Integer> winning = Arrays.stream(s.split(": ")[1].trim().split(" \\| ")[0].replaceAll(" {2}"," ").split(" ")).map(Integer::parseInt).toList();
-                sum += (int) Math.pow(2,winning.stream().filter(e -> Arrays.stream(s.split(": ")[1].split(" \\| ")[1].trim().replaceAll(" {2}"," ").split(" ")).map(Integer::parseInt).toList().contains(e)).toList().size()-1);
+                List<Integer> winning = Arrays.stream(s.split(": ")[1].trim().split(" \\| ")[0].split("\\s+")).map(Integer::parseInt).toList();
+                sum += (int) Math.pow(2,winning.stream().filter(e -> Arrays.stream(s.split(": ")[1].split(" \\| ")[1].trim().split("\\s+")).map(Integer::parseInt).toList().contains(e)).toList().size()-1);
             }
             System.out.println(sum);
         } catch (IOException e) {
