@@ -16,7 +16,7 @@ public class ParabolicReflectorDishPartTwo {
             List<String> sl = Files.readAllLines(Path.of("src/adventofcode2023/day14/TestData.txt"));
             int tSum = 0, sum, cycle = 0, L = sl.size(), C = sl.get(0).length();
             cycles.put(0,new ArrayList<>(sl));
-            cycleSum.put(new ArrayList<>(sl),0);//change need add value instead 0
+            cycleSum.put(new ArrayList<>(sl),0);//change need add value instead 0, nvm it works won't touch it yet
             while (true) {
                 for (int i = 0; i < L; i++) { //north
                     for (int j = 0; j < sl.get(i).length(); j++) {
@@ -28,8 +28,7 @@ public class ParabolicReflectorDishPartTwo {
                         }
                     }
                 }
-                //west
-                for (int j = 0; j < C; j++) {
+                for (int j = 0; j < C; j++) { //west
                     for (int i = 0; i < L; i++) {
                         if (sl.get(i).charAt(j) == 'O') {
                             int cnt = j;
@@ -49,8 +48,7 @@ public class ParabolicReflectorDishPartTwo {
                         }
                     }
                 }
-                //east
-                for (int j = C - 1; j >= 0; j--) {
+                for (int j = C - 1; j >= 0; j--) { //east
                     for (int i = 0; i < L; i++) {
                         if (sl.get(i).charAt(j) == 'O') {
                             int cnt = j;
