@@ -1,4 +1,4 @@
-package adventofcode2023.day6;
+package adventofcode2023.day06;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package adventofcode2023.day3;
+package adventofcode2023.day03;
 
 import java.awt.*;
 import java.io.IOException;
