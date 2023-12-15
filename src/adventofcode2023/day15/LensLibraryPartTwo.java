@@ -16,21 +16,14 @@ public class LensLibraryPartTwo {
             for (String s : sl) {
                 char[] cl = s.contains("=") ? s.split("=")[0].toCharArray() : s.split("-")[0].toCharArray();
                 int temp = 0;
-                for (char c : cl) {
-                    temp = ((temp + c)*17)%256;
-                }
-                if (s.contains("-")) {
-                    boxes.get(temp).remove(s.split("-")[0]);
-                } else {
-                    boxes.get(temp).put(s.split("=")[0],Integer.parseInt(s.split("=")[1]));
-                }
+                for (char c : cl) temp = ((temp + c)*17)%256;
+                if (s.contains("-")) boxes.get(temp).remove(s.split("-")[0]);
+                else boxes.get(temp).put(s.split("=")[0],Integer.parseInt(s.split("=")[1]));
             }
             for (int i = 0; i < boxes.size(); i++) {
                 LinkedHashMap<String,Integer> map = boxes.get(i);
                 List<String> arr = new ArrayList<>(map.keySet());
-                for (int j = 0; j < arr.size(); j++) {
-                    sum += (i+1) * (j+1) * map.get(arr.get(j));
-                }
+                for (int j = 0; j < arr.size(); j++) sum += (i+1) * (j+1) * map.get(arr.get(j));
             }
             System.out.println(sum);
         } catch (IOException e) {
