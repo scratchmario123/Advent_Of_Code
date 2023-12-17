@@ -18,12 +18,12 @@ public class TheFloorWillBeLavaPartTwo {
             for (int i = 0; i < sl.size(); i++) tiles[i] = sl.get(i).toCharArray();
             int max = 0;
             for (int i = 0; i < tiles[0].length; i++) {
-                max = Math.max(attempt(i,0,tiles),max);
-                max = Math.max(attempt(i,tiles.length-1,tiles),max);
+                max = Math.max(attempt(i,0,2,tiles),max);
+                max = Math.max(attempt(i,tiles.length-1,0,tiles),max);
             }
             for (int i = 1; i < tiles.length; i++) {
-                max = Math.max(attempt(0,i,tiles),max);
-                max = Math.max(attempt(tiles[0].length-1,i,tiles),max);
+                max = Math.max(attempt(0,i,1,tiles),max);
+                max = Math.max(attempt(tiles[0].length-1,i,3,tiles),max);
             }
             System.out.println(max);
         } catch (IOException e) {
@@ -64,14 +64,10 @@ public class TheFloorWillBeLavaPartTwo {
         }
     }
 
-    static int attempt(int x, int y, char[][] arr) {
-        int max = 0;
-        for (int i = 0; i < 4; i++) {
-            energized = new HashSet<>();
-            repeated = new HashSet<>();
-            move(x,y,i,arr);
-            max = Math.max(energized.size(),max);
-        }
-        return max;
+    static int attempt(int x, int y, int dir, char[][] arr) {
+        energized = new HashSet<>();
+        repeated = new HashSet<>();
+        move(x,y,dir,arr);
+        return energized.size();
     }
 }
