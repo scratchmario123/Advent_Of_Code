@@ -63,7 +63,7 @@ public class ParabolicReflectorDishPartTwo {
                 if (cycles.containsValue(sl)) {
                     int skipped = 0;
                     for (int i : cycles.keySet()) if (cycles.get(i).equals(sl)) skipped = i;
-                    int extra = (1000000000-cycle+1)%(cycle-skipped)-1;
+                    int extra = (1000000000-cycle)%(cycle-skipped); //skipped includes the start of loop
                     sum = cycleSum.get(cycles.get(extra+skipped));
                     break;
                 } else {
